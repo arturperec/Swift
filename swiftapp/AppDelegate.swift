@@ -6,6 +6,8 @@
 //  Copyright © 2018 Artur Pereć. All rights reserved.
 //
 
+
+
 import UIKit
 
 @UIApplicationMain
@@ -16,6 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let url = URL(string: "https://api.darksky.net/forecast/3bc39cbe99b7893f47cb00f6da8a3bd5/37.8267,-122.4233")!
+        let networkProcessor = NetworkProcessor(url: url)
+        
+        networkProcessor.downloadJSONFromURL { (jsonDictionary) in
+            print(jsonDictionary)
+        }
+        
+        
+        
         return true
     }
 
