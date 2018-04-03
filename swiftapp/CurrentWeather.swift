@@ -41,7 +41,7 @@ class CurrentWeather
         summary = weatherDictionary[WeatherKeys.summary] as? String
     }
     
-    /*
+    /* Test Data
      {
          "time":1522249846,
          "summary":"Clear",

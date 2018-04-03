@@ -21,7 +21,7 @@ class ForecastService
         
         forecastBaseURL = URL(string: "https://api.darksky.net/forecast/\(APIKey)") //tutaj string z niewiadomych przyczyn gubi jeden znak, zatem dopisałem 0 na początku stringa
                                                                                         //wiem, że nie jest to zbyt dobre rozwiązanie, ale nie mogłem znaleźć przyczyny.
-                                                                                        //jednak i tak wyrzuca error unexpected URL
+                                                                                        //Jednak i tak wyrzuca error unexpected URL, dlatego zmieniłem metodę wysłania i nie korzystam z relativeTo.
     }
     
     func getForecast(latitude: Double, longitude: Double, completion: @escaping (CurrentWeather?) -> Void)
