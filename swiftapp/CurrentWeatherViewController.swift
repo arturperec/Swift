@@ -11,6 +11,7 @@ import UIKit
 var currentCityName: String?
 var currentCityLatitude: Double?
 var currentCityLongitude: Double?
+var isTemperatureFahrenheit = true
 
 class CurrentWeatherViewController: UIViewController {
 
@@ -19,7 +20,7 @@ class CurrentWeatherViewController: UIViewController {
     @IBOutlet weak var temperatureScaleLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
-    var isTemperatureFahrenheit = true
+    
     
     @IBAction func changeTemperature(_ sender: UIButton) {
         isTemperatureFahrenheit = !isTemperatureFahrenheit
@@ -41,7 +42,7 @@ class CurrentWeatherViewController: UIViewController {
             if let currentWeather = currentWeather {
                 DispatchQueue.main.async {
                     if let temperature = currentWeather.temperature {
-                        if self.isTemperatureFahrenheit {
+                        if isTemperatureFahrenheit {
                             self.temperatureLabel.text = "\(temperature)°"
                             self.temperatureScaleLabel.text = "FAHRENHEIT"
                         } else {
