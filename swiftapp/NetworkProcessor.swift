@@ -50,7 +50,7 @@ class NetworkProcessor
                 }
             
             } else {
-                print("Error: \(error?.localizedDescription)")
+                print("Error: \(String(describing: error?.localizedDescription))")
             }
         }
         

@@ -8,6 +8,10 @@
 
 import UIKit
 
+var currentCityName: String?
+var currentCityLatitude: Double?
+var currentCityLongitude: Double?
+
 class CurrentWeatherViewController: UIViewController {
 
     @IBOutlet weak var cityTextLabel: UILabel!
@@ -29,10 +33,12 @@ class CurrentWeatherViewController: UIViewController {
         //Add Button on Veare to go to the ViewController (about with info about programmer)
     //Testing Data
     let forecastAPIKey = "3bc39cbe99b7893f47cb00f6da8a3bd5"
-    let coordinate: (latitude: Double, longitude: Double) = (37.8267, -122.4233)
+    let coordinate: (latitude: Double, longitude: Double) = (currentCityLatitude!, currentCityLongitude!)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.cityTextLabel.text = currentCityName
         
         let forecastService = ForecastService(APIKey: forecastAPIKey)
         forecastService.getForecast(latitude: coordinate.latitude, longitude: coordinate.longitude) { (currentWeather) in
