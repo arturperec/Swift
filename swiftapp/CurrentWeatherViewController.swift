@@ -20,8 +20,6 @@ class CurrentWeatherViewController: UIViewController {
     @IBOutlet weak var temperatureScaleLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
-    
-    
     @IBAction func changeTemperature(_ sender: UIButton) {
         isTemperatureFahrenheit = !isTemperatureFahrenheit
         viewDidLoad()
