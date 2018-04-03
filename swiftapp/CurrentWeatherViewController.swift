@@ -27,11 +27,7 @@ class CurrentWeatherViewController: UIViewController {
     }
     @IBAction func gotoAbout(_ sender: UIButton) {
     }
-    //TODO: 
-        //Add Button on temperature to change temp to Celsius
-        //Add Button on cityname to change city to Poznan / Warsaw / Los Angeles or add a label to add ur own city.
-        //Add Button on Veare to go to the ViewController (about with info about programmer)
-    //Testing Data
+    
     let forecastAPIKey = "3bc39cbe99b7893f47cb00f6da8a3bd5"
     let coordinate: (latitude: Double, longitude: Double) = (currentCityLatitude!, currentCityLongitude!)
     
@@ -58,8 +54,6 @@ class CurrentWeatherViewController: UIViewController {
                 }
             }
         }
-
-        // Do any additional setup after loading the view.
     }
 
     
