@@ -14,6 +14,15 @@ class CurrentWeatherViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var temperatureScaleLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    
+    var isTemperatureFahrenheit = true
+    
+    @IBAction func changeTemperature(_ sender: UIButton) {
+        isTemperatureFahrenheit = !isTemperatureFahrenheit
+        viewDidLoad()
+    }
+    @IBAction func gotoAbout(_ sender: UIButton) {
+    }
     //TODO: 
         //Add Button on temperature to change temp to Celsius
         //Add Button on cityname to change city to Poznan / Warsaw / Los Angeles or add a label to add ur own city.
@@ -30,7 +39,13 @@ class CurrentWeatherViewController: UIViewController {
             if let currentWeather = currentWeather {
                 DispatchQueue.main.async {
                     if let temperature = currentWeather.temperature {
-                        self.temperatureLabel.text = "\(temperature)"
+                        if self.isTemperatureFahrenheit {
+                            self.temperatureLabel.text = "\(temperature)°"
+                            self.temperatureScaleLabel.text = "FAHRENHEIT"
+                        } else {
+                            self.temperatureLabel.text = "\((temperature - 32) * 5/9)°"
+                            self.temperatureScaleLabel.text = "CELSIUS"
+                        }
                     } else {
                         self.temperatureLabel.text = "-"
                     }
